@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (Microsoft) - proga_database@localhost" uuid="f556aa84-395e-4761-a35c-07d9b3dd8272">
+      <secret-storage>master_key</secret-storage>
+      <domain-auth>true</domain-auth>
+      <user-name>user</user-name>
+    </data-source>
+  </component>
+</project>

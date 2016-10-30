@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2614189411">
+    <data-source source="LOCAL" name="SQL Server (Microsoft) - proga_database@localhost" uuid="f556aa84-395e-4761-a35c-07d9b3dd8272">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;databaseName=proga_database</jdbc-url>
+    </data-source>
+  </component>
+</project>

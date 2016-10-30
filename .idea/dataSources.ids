@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="SQL Server (Microsoft) - proga_database@localhost" uuid="f556aa84-395e-4761-a35c-07d9b3dd8272">
+    <database-info product="Microsoft SQL Server" version="13.00.1601" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+      <extra-name-characters>$#@</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-model serializer="dbm" rdbms="MSSQL" format-version="2.5">
+      <database id="1" name="proga_database">
+        <object-id>8</object-id>
+        <collation>Cyrillic_General_CI_AS</collation>
+      </database>
+      <schema id="2" parent="1" name="dbo">
+        <object-id>1</object-id>
+        <introspection-timestamp>2016-10-28.11:46:26.373</introspection-timestamp>
+      </schema>
+      <table id="3" parent="2" name="catalog">
+        <object-id>1845581613</object-id>
+        <created-timestamp>2016-10-23.18:04:51.693</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:49.240</modified-timestamp>
+      </table>
+      <table id="4" parent="2" name="goods_list">
+        <object-id>1877581727</object-id>
+        <created-timestamp>2016-10-23.18:41:05.617</created-timestamp>
+        <modified-timestamp>2016-10-23.18:41:05.617</modified-timestamp>
+      </table>
+      <table id="5" parent="2" name="order_goods">
+        <object-id>66099276</object-id>
+        <created-timestamp>2016-10-27.18:23:49.237</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:49.237</modified-timestamp>
+      </table>
+      <table id="6" parent="2" name="orders">
+        <object-id>18099105</object-id>
+        <created-timestamp>2016-10-27.18:23:45.280</created-timestamp>
+        <modified-timestamp>2016-10-27.20:43:50.160</modified-timestamp>
+      </table>
+      <table id="7" parent="2" name="Table_1">
+        <object-id>565577053</object-id>
+        <created-timestamp>2016-09-19.12:32:14.210</created-timestamp>
+        <modified-timestamp>2016-09-19.12:32:14.460</modified-timestamp>
+      </table>
+      <table id="8" parent="2" name="users">
+        <object-id>1333579789</object-id>
+        <created-timestamp>2016-10-14.02:03:39.237</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:45.487</modified-timestamp>
+      </table>
+      <column id="9" parent="3" name="catalog_good_id">
+        <mandatory>1</mandatory>
+        <data-type>int</data-type>
+        <sequence-identity>1(37)</sequence-identity>
+      </column>
+      <column id="10" parent="3" name="good_name">
+        <mandatory>1</mandatory>
+        <data-type>nvarchar(80)</data-type>
+      </column>
+      <column id="11" parent="3" name="good_price">
+        <mandatory>1</mandatory>
+        <data-type>float</data-type>
+      </column>
+      <column id="12" parent="3" name="good_description">
+        <data-type>nvarchar(1000)</data-type>
+      </column>
+      <column id="13" parent="3" name="good_img">
+        <data-type>nvarchar(60)</data-type>
+      </column>
+      <column id="14" parent="3" name="type">
+        <data-type>nvarchar(60)</data-type>
+      </column>
+      <index id="15" parent="3" name="PK_catalog_good_id">
+        <columns>catalog_good_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <clustering>1</clustering>
+        <position>1</position>
+      </index>
+      <key id="16" parent="3" name="PK_catalog_good_id">
+        <object-id>1861581670</object-id>
+        <created-timestamp>2016-10-23.18:04:51.980</created-timestamp>
+        <modified-timestamp>2016-10-23.18:04:51.980</modified-timestamp>
+        <columns>catalog_good_id</columns>
+        <underlying-index>PK_catalog_good_id</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="17" parent="4" name="good_list_id">
+        <mandatory>1</mandatory>
+        <data-type>int</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="18" parent="4" name="catalog_good_id">
+        <data-type>int</data-type>
+      </column>
+      <column id="19" parent="4" name="quantity">
+        <mandatory>1</mandatory>
+        <data-type>int</data-type>
+      </column>
+      <column id="20" parent="4" name="user_login">
+        <data-type>varchar(60)</data-type>
+      </column>
+      <index id="21" parent="4" name="PK_goods_list_id">
+        <columns>good_list_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <clustering>1</clustering>
+        <position>1</position>
+      </index>
+      <key id="22" parent="4" name="PK_goods_list_id">
+        <object-id>1893581784</object-id>
+        <created-timestamp>2016-10-23.18:41:05.677</created-timestamp>
+        <modified-timestamp>2016-10-23.18:41:05.677</modified-timestamp>
+        <columns>good_list_id</columns>
+        <underlying-index>PK_goods_list_id</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="23" parent="4" name="FK_goods_list_catalog_id">
+        <object-id>1909581841</object-id>
+        <created-timestamp>2016-10-23.18:41:05.677</created-timestamp>
+        <modified-timestamp>2016-10-23.18:41:05.677</modified-timestamp>
+        <columns>catalog_good_id</columns>
+        <ref-key>~.catalog.PK_catalog_good_id</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="24" parent="4" name="FK_goods_list_user_id">
+        <object-id>1925581898</object-id>
+        <created-timestamp>2016-10-23.18:41:05.827</created-timestamp>
+        <modified-timestamp>2016-10-23.18:41:05.827</modified-timestamp>
+        <columns>user_login</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="25" parent="5" name="order_id">
+        <data-type>int</data-type>
+      </column>
+      <column id="26" parent="5" name="quantity">
+        <data-type>int</data-type>
+      </column>
+      <column id="27" parent="5" name="catalog_good_id">
+        <data-type>int</data-type>
+      </column>
+      <foreign-key id="28" parent="5" name="FK_order_goods_id">
+        <object-id>82099333</object-id>
+        <created-timestamp>2016-10-27.18:23:49.237</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:49.237</modified-timestamp>
+        <columns>order_id</columns>
+        <ref-key>~.orders.PK_orders_id</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="29" parent="5" name="FK_order_goods_name">
+        <object-id>98099390</object-id>
+        <created-timestamp>2016-10-27.18:23:49.237</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:49.237</modified-timestamp>
+        <columns>catalog_good_id</columns>
+        <ref-key>~.catalog.PK_catalog_good_id</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="30" parent="6" name="order_id">
+        <mandatory>1</mandatory>
+        <data-type>int</data-type>
+        <sequence-identity>1(5)</sequence-identity>
+      </column>
+      <column id="31" parent="6" name="user_login">
+        <data-type>varchar(60)</data-type>
+      </column>
+      <column id="32" parent="6" name="total_price">
+        <data-type>float</data-type>
+      </column>
+      <column id="33" parent="6" name="date">
+        <data-type>nvarchar(100)</data-type>
+      </column>
+      <index id="34" parent="6" name="PK_orders_id">
+        <columns>order_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <clustering>1</clustering>
+        <position>1</position>
+      </index>
+      <key id="35" parent="6" name="PK_orders_id">
+        <object-id>34099162</object-id>
+        <created-timestamp>2016-10-27.18:23:45.420</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:45.420</modified-timestamp>
+        <columns>order_id</columns>
+        <underlying-index>PK_orders_id</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="36" parent="6" name="FK_orders_user_id">
+        <object-id>50099219</object-id>
+        <created-timestamp>2016-10-27.18:23:45.420</created-timestamp>
+        <modified-timestamp>2016-10-27.18:23:45.420</modified-timestamp>
+        <columns>user_login</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="37" parent="7" name="lala">
+        <mandatory>1</mandatory>
+        <data-type>nchar(10)</data-type>
+      </column>
+      <column id="38" parent="7" name="my_db">
+        <mandatory>1</mandatory>
+        <data-type>nchar(10)</data-type>
+      </column>
+      <column id="39" parent="8" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int</data-type>
+        <sequence-identity>1(5)</sequence-identity>
+      </column>
+      <column id="40" parent="8" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(60)</data-type>
+      </column>
+      <column id="41" parent="8" name="password">
+        <mandatory>1</mandatory>
+        <data-type>nvarchar(25)</data-type>
+      </column>
+      <column id="42" parent="8" name="name">
+        <mandatory>1</mandatory>
+        <data-type>nvarchar(70)</data-type>
+      </column>
+      <column id="43" parent="8" name="gender">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="44" parent="8" name="country">
+        <mandatory>1</mandatory>
+        <data-type>nvarchar(40)</data-type>
+      </column>
+      <column id="45" parent="8" name="aboutYourself">
+        <data-type>nvarchar(255)</data-type>
+      </column>
+      <column id="46" parent="8" name="newsletter">
+        <data-type>nvarchar(5)</data-type>
+      </column>
+      <column id="47" parent="8" name="favoriteSinger">
+        <data-type>nvarchar(60)</data-type>
+      </column>
+      <index id="48" parent="8" name="PK_users_user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <clustering>1</clustering>
+        <position>1</position>
+      </index>
+      <index id="49" parent="8" name="PK_users_login">
+        <columns>login</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <clustering>1</clustering>
+        <position>1</position>
+      </index>
+      <key id="50" parent="8" name="PK_users_login">
+        <object-id>1637580872</object-id>
+        <created-timestamp>2016-10-18.20:13:51.657</created-timestamp>
+        <modified-timestamp>2016-10-18.20:13:51.657</modified-timestamp>
+        <columns>user_id</columns>
+        <underlying-index>PK_users_user_id</underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
