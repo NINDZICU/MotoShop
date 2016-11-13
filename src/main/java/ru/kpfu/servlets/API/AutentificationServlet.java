@@ -1,5 +1,6 @@
 package ru.kpfu.servlets.API;
 
+import ru.kpfu.entites.Artist;
 import ru.kpfu.models.UserHandler;
 import ru.kpfu.models.API.Parser;
 import ru.kpfu.models.API.WeatherAPI;
@@ -10,8 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by Admin on 27.09.2016.
@@ -24,8 +29,8 @@ public class AutentificationServlet extends HttpServlet {
         UserDataBase db = new UserDataBase();
         WeatherAPI api = new WeatherAPI();
         Parser parser = new Parser();
-        String weatherData="";
-        String listenerData="";
+        String weatherData = "";
+        String listenerData = "";
 
         if (handler.checkSession(req)) {
 
@@ -48,7 +53,7 @@ public class AutentificationServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            try{
+            try {
                 req.setAttribute("sizeListening", parser.getSizeListener(listenerData));
                 req.setAttribute("favoriteSinger", db.getFavoriteSinger(req));
             } catch (JSONException e) {
@@ -57,6 +62,31 @@ public class AutentificationServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
+            ArrayList<Artist> artists = new ArrayList<Artist>();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("D://artists.txt")));
+            int c;
+            while ((c=reader.read()) != -1) {
+                String nameArtist="";
+                nameArtist += (char) c;
+                while (((char)(c=reader.read()))!= ',' && c != -1) {
+                    nameArtist += (char) c;
+                }
+                try {
+                    artists.add(new Artist(
+                            parser.getNameArtist(api.getSizeLoveSinger(nameArtist)),
+                            parser.getSizeListener(api.getSizeLoveSinger(nameArtist)),
+                            parser.getImgArtist(api.getSizeLoveSinger(nameArtist))
+                    ));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                nameArtist="";
+                reader.skip(1);
+            }
+            reader.close();
+            req.setAttribute("artists", artists);
+
+
             getServletContext().getRequestDispatcher("/WEB-INF/views/autentification.jsp").forward(req, resp);
 
         } else resp.sendRedirect("/input");
@@ -64,10 +94,10 @@ public class AutentificationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("Catalog")!=null){
+        if (req.getParameter("Catalog") != null) {
             resp.sendRedirect("/catalog");
         }
-        if (req.getParameter("basket")!=null){
+        if (req.getParameter("basket") != null) {
             resp.sendRedirect("/basket");
         }
     }
